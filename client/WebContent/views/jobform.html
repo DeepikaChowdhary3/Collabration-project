@@ -1,0 +1,22 @@
+<div ng-show="user.role!='ADMIN'">
+<h3>You are not authorized to add any job details</h3>
+</div>
+<div ng-show="user.role=='ADMIN'">
+<b>Add Job</b><br>
+<span style="color:red">{{message}}</span>
+<span style="color:red">{{error.errorMessage}}</span>
+<form>
+<pre>
+Enter Job Title      	 :<input type="text"  ng-model="job.jobTitle">
+Enter Job Description    :<textarea ng-model="job.jobDescription"></textarea>
+Enter Salary          	 :<input type="text" ng-model="job.salary">
+Enter Skills Required 	 :<input type="text" ng-model="job.skillsRequired">
+Enter Location       	 :<input type="text" ng-model="job.location">
+Enter Years of Experience:<input type="text" ng-model="job.yrsOfExp">
+Enter Reference      	 :<input type="text" ng-model="job.reference">
+Enter Qualification   	 :<input type="text" ng-model="job.qualification">
+
+<button ng-click="addJob()">Add Job</button>
+</pre>
+</form>
+</div>

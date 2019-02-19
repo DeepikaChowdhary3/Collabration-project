@@ -1,0 +1,25 @@
+
+<div class="panel panel-success">
+<div class="panel-heading">
+<h3>Job Details</h3>
+</div>
+<div class="panel-body">
+<ul style="list-style:none">
+<li ng-repeat="job in jobs">
+<a><b>Job Title      : </b>{{job.jobTitle}}</a><br>
+<b>Skills Required   : </b>{{job.skillsRequired}}  <br>
+<b>Posted On         : </b>{{job.postedOn | date:'dd-MMM-yyyy hh:mm:ss'}} <br>
+
+<a ng-click="showDetails(job.jobId)" ng-hide="show && job.jobId==jobId">show details</a>
+<div ng-show="show && job.jobId==jobId">
+<b>Yrs Of Exp :</b>{{job.yrsOfExp}}<br>
+<b>Salary     :</b> {{job.salary}}<br>
+<b>Location   :</b> {{job.location}}<br>
+<a ng-click="showDetails(job.jobId)">Hide details</a>
+</div>
+
+<hr>
+</li>
+</ul>
+</div>
+</div>
