@@ -1,0 +1,14 @@
+<div class="panel panel-primary">
+<div class="panel-heading">
+<b>Blog Title:</b>{{blogPost.blogTitle}}<br>
+<b>Posted On :</b> {{blogPost.postedOn | date:'dd-MMM-yyyy :hh:mm:ss'}}<br>
+<b>Author    :</b>{{blogPost.author.email}}<br>
+</div>
+<div class=panel-body>
+<div>
+<p ng-bind-html="content"></p><br>
+</div>
+<button class="btn btn-primary" ng-click="approveBlogPost(blogPost)">Approve</button> &nbsp; 
+<button class="btn btn-danger" ng-click="rejectBlogPost(blogPost)">Reject</button>
+</div>
+</div>

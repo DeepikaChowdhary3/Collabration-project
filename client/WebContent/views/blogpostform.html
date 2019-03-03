@@ -1,0 +1,17 @@
+<div ng-show="user==undefined">
+Please login to add a blog
+</div>
+<div ng-show="user!=undefined">
+<span style="color:red">{{error.errorMessage}}</span>
+<form>
+<pre>
+Enter Blog Title:
+<input type="text" ng-model="blogPost.blogTitle">
+Enter Blog Content:
+<textarea rows="5" cols="50" ng-model="blogPost.blogContent"></textarea>
+
+<button ng-click="addBlogPost(blogPost)" class="btn btn-info">Post Blog</button>
+</pre>
+<button class="btn btn-info" ng-click="addBoldTags()">Bold</button>
+</form>
+</div>

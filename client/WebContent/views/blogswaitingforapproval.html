@@ -1,0 +1,23 @@
+<div ng-show="user.role!='ADMIN'">
+You are not authorized to view blogs waiting for approval
+</div>
+
+<div ng-show="user.role=='ADMIN'">
+<div class="panel panel-info" >
+<div class="panel-heading">
+<b>List Of Blogs waiting for Approval</b>
+</div>
+<div class="panel-body">
+<b ng-show="blogsWaitingForApproval.length==0">No more waiting blogs</b>
+<ul style="list-style:none">
+<li ng-repeat="blogPost in blogsWaitingForApproval">
+<a href="#/getblogwaitingforapproval/{{blogPost.blogPostId}}"><b>Blog Title   : {{blogPost.blogTitle}}</b></a><br>
+<b>Posted On          : {{blogPost.postedOn | date:'dd-MMM-yyyy hh:mm:ss'}}<br>
+Author's Email     : {{blogPost.author.email}}<br>
+Posted By          : {{blogPost.author.firstname}} &nbsp; {{blogPost.author.lastname}}</b>
+<hr>
+</li>
+</ul>
+</div>
+</div>
+</div>

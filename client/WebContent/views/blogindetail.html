@@ -1,0 +1,33 @@
+<div class="panel panel-primary">
+<div class="panel-heading">
+<b>Blog Title:</b>{{blogPost.blogTitle}}<br>
+<b>Posted On :</b> {{blogPost.postedOn | date:'dd-MMM-yyyy :hh:mm:ss'}}<br>
+<b>Author    :</b>{{blogPost.author.email}}<br>
+</div>
+<div class=panel-body>
+<div>
+<p ng-bind-html="content"><br>
+</p>
+</div>
+<div>
+
+<a ng-click="updateLikes(blogPost.blogPostId)">
+<span class="glyphicon glyphicon-thumbs-up" ng-class="isLiked?'liked':'default'">
+</span></a>&nbsp;{{blogPost.likes}}&nbsp;Likes<br>
+
+<textarea rows="4" cols="70" ng-model="commentTxt"></textarea><br>
+<button ng-click="addBlogComment(commentTxt,blogPost)" class="btn btn-success">Post Comment</button><br>
+<span ng-show="blogComment!=undefined">
+{{blogComment.commentTxt}} &nbsp;,{{blogComment.commentedBy.firstname}}&nbsp;{{blogComment.commentedBy.lastname}}&nbsp;,{{blogComment.commentedOn|date:'dd-MMMM-yyyy :hh:mm:ss'}}
+</span><br>
+<a class="btn btn-primary" ng-click="getAllBlogComments(blogPost.blogPostId)">Show Comments</a><br>
+
+<ul ng-repeat="blogComment in blogComments" style="list-style:square">
+<li>
+{{blogComment.commentTxt}} &nbsp;,{{blogComment.commentedBy.firstname}}&nbsp;{{blogComment.commentedBy.lastname}}&nbsp;,{{blogComment.commentedOn|date:'dd-MMMM-yyyy :hh:mm:ss'}}
+</li>
+</ul>
+
+</div>
+</div>
+</div>
