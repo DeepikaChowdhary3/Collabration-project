@@ -113,7 +113,7 @@ public class UserController {
 			ErrorClazz errorClazz=new ErrorClazz(7,"Please login..");
 			return new ResponseEntity<ErrorClazz>(errorClazz,HttpStatus.UNAUTHORIZED);
 		}
-		if(!userDao.isPhonenumberUnique(user.getPhonenumber()))
+		if(!userDao.isUpdatedPhonenumberUnique(user.getPhonenumber(), email))
 		{
 			ErrorClazz errorClazz=new ErrorClazz(4,"Phone number already exists... please enter a different phone number");
 			return new ResponseEntity<ErrorClazz>(errorClazz,HttpStatus.INTERNAL_SERVER_ERROR);
