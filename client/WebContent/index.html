@@ -28,16 +28,30 @@
 <li><a href="#/updateuserprofile" ng-show="user!=undefined">Edit User Profile</a></li>
 
 <li class="dropdown">
-<a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="user!=undefined">Blog
+<a href="" class="dropdown-toggle" data-toggle="dropdown" ng-show="user!=undefined">Blog
 <span class="caret"></span></a>
 <ul class="dropdown-menu">
 <li><a href="#/addblog">Add Blog</a></li>
 <li><a href="#/blogsapproved">Blogs Approved</a></li>
 <li><a href="#/blogswaitingforapproval" ng-show="user.role=='ADMIN'">Blogs Waiting for approval</a></li>
-	
 </ul>
 </li>
 
+<li class="dropdown">
+<a href="" class="dropdown-toggle" data-toggle="dropdown" ng-show="user.email!=undefined">
+Notification<span class="rw-number-notification" ng-if="notificationCount>0">&nbsp;{{notificationCount}}<span class="caret"></span></span></a>
+<ul class="dropdown-menu" style="list-style:none">
+<span class="dropdown-content">
+<li ng-repeat="notification in notifications">
+<a href="#/getnotification/{{notification.notificationId}}"><b>Your Blog "{{notification.blogTitle}}"'s approval status is updated</b></a>
+<br>
+</li>
+</span>
+</ul>
+</li>
+
+<li><a href="#/uploadprofilepic" ng-show="user!=undefined">
+<img src="http://localhost:8085/middleware/getimage?email={{user.email}}" height="50px" width="50px" alt="Upload Profile Picture"></a></li>
 <li><a href="" ng-click="logout()" ng-show="user!=undefined">Sign out</a></li>
 </ul>
 </div>
@@ -50,6 +64,7 @@
 </body>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/glyphiconcolor.css">
+<link rel="stylesheet" href="resources/css/notification.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
@@ -66,4 +81,8 @@
 <script type="text/javascript" src="controllers/blogpostcontroller.js"></script>
 <script type="text/javascript" src="controllers/blogindetailcontroller.js"></script>
 <script type="text/javascript" src="services/blogpostservice.js"></script>
+
+<script type="text/javascript" src="controllers/notificationcontroller.js"></script>
+<script type="text/javascript" src="services/notificationservice.js"></script>
+
 </html>

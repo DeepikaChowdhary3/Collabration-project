@@ -2,6 +2,7 @@ app.controller('BlogInDetailCtrl',function($scope,BlogPostService,$routeParams,$
 {
 	var blogPostId=$routeParams.blogpostid
 	alert('blogpost id is '+blogPostId)
+	$scope.isRejected=false
 	
 	BlogPostService.getBlog(blogPostId).then
 	(
@@ -31,9 +32,9 @@ app.controller('BlogInDetailCtrl',function($scope,BlogPostService,$routeParams,$
 		})
 	}
 	
-	$scope.rejectBlogPost=function(blogPost)
+	$scope.rejectBlogPost=function(blogPost,rejectionReason)
 	{
-		BlogPostService.rejectBlogPost(blogPost).then
+		BlogPostService.rejectBlogPost(blogPost,rejectionReason).then
 		(
 		function(response)
 		{
@@ -111,5 +112,11 @@ app.controller('BlogInDetailCtrl',function($scope,BlogPostService,$routeParams,$
 			if(response.status==401)
 				$location.path('/login')
 		})
+	}
+	
+	$scope.rejected=function()
+	{
+		$scope.isRejected=true
+			
 	}
 })

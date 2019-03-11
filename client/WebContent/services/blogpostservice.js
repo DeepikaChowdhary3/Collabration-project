@@ -28,9 +28,9 @@ app.factory('BlogPostService',function($http)
 		return $http.put(BASE_URL+"/approveblogpost",blogPost)
 	}
 	
-	blogPostService.rejectBlogPost=function(blogPost)
+	blogPostService.rejectBlogPost=function(blogPost,rejectionReason)
 	{
-		return $http.put(BASE_URL+"/rejectblogpost",blogPost)
+		return $http.put(BASE_URL+"/rejectblogpost/"+rejectionReason,blogPost)
 	}
 	
 	blogPostService.hasUserLikedBlogPost=function(blogPostId)

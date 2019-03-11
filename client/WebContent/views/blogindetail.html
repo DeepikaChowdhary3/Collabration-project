@@ -1,9 +1,22 @@
 <div class="panel panel-primary">
 <div class="panel-heading">
+<div class="media">
+
+<div class="media-left">
+<img src="http://localhost:8085/middleware/getimage?email={{blogPost.author.email}}" height="50px" width="50px" alt="No Image">
+</div>
+
+<div class="media-body">
+<h5 class="media-heading">
 <b>Blog Title:</b>{{blogPost.blogTitle}}<br>
 <b>Posted On :</b> {{blogPost.postedOn | date:'dd-MMM-yyyy :hh:mm:ss'}}<br>
 <b>Author    :</b>{{blogPost.author.email}}<br>
+</h5>
 </div>
+</div>
+</div>
+
+
 <div class=panel-body>
 <div>
 <p ng-bind-html="content"><br>
@@ -18,13 +31,21 @@
 <textarea rows="4" cols="70" ng-model="commentTxt"></textarea><br>
 <button ng-click="addBlogComment(commentTxt,blogPost)" class="btn btn-success">Post Comment</button><br>
 <span ng-show="blogComment!=undefined">
-{{blogComment.commentTxt}} &nbsp;,{{blogComment.commentedBy.firstname}}&nbsp;{{blogComment.commentedBy.lastname}}&nbsp;,{{blogComment.commentedOn|date:'dd-MMMM-yyyy :hh:mm:ss'}}
+{{blogComment.commentTxt}} &nbsp;Commented By:You,&nbsp;Commented On:{{blogComment.commentedOn|date:'dd-MMMM-yyyy :hh:mm:ss'}}
 </span><br>
 <a class="btn btn-primary" ng-click="getAllBlogComments(blogPost.blogPostId)">Show Comments</a><br>
 
 <ul ng-repeat="blogComment in blogComments" style="list-style:square">
-<li>
-{{blogComment.commentTxt}} &nbsp;,{{blogComment.commentedBy.firstname}}&nbsp;{{blogComment.commentedBy.lastname}}&nbsp;,{{blogComment.commentedOn|date:'dd-MMMM-yyyy :hh:mm:ss'}}
+<li><img src="http://localhost:8085/middleware/getimage?email={{blogComment.commentedBy.email}}" height="50px" width="50px" alt="No Image">
+
+{{blogComment.commentTxt}} &nbsp;,Commented By:
+<span ng-show="blogComment.commentedBy.email!=user.email">
+{{blogComment.commentedBy.firstname}}&nbsp;{{blogComment.commentedBy.lastname}}
+</span>
+<span ng-show="blogComment.commentedBy.email==user.email">
+You
+</span>
+&nbsp;,Commented On:{{blogComment.commentedOn|date:'dd-MMMM-yyyy :hh:mm:ss'}}
 </li>
 </ul>
 

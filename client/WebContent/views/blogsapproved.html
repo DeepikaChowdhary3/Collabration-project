@@ -11,10 +11,19 @@ Please login
 <b ng-show="blogsApproved.length==0">No approved blogs</b>
 <ul style="list-style:none">
 <li ng-repeat="blogPost in blogsApproved">
+<div class="media">
+<div class="media-left">
+<img src="http://localhost:8085/middleware/getimage?email={{blogPost.author.email}}" height="50px" width="50px" alt="No Image">
+</div>
+<div class="media-body">
+<h5 class="media-heading">
 <b><a href="#/getblogapproved/{{blogPost.blogPostId}}">Blog Title : {{blogPost.blogTitle}}</a><br>
 Posted On : {{blogPost.postedOn | date:'dd-MMM-yyyy hh:mm:ss'}}<br>
 Author :{{blogPost.author.email}}<br></b>
+</h5>
 <hr>
+</div>
+</div>
 </li>
 </ul>
 </div>
