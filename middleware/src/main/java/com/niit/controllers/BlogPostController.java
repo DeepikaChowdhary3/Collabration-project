@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.niit.dao.BlogPostDao;
+import com.niit.dao.NotificationDao;
 import com.niit.dao.UserDao;
 import com.niit.models.BlogPost;
 import com.niit.models.ErrorClazz;
+import com.niit.models.Notification;
 import com.niit.models.User;
 
 @RestController
@@ -27,6 +29,8 @@ public class BlogPostController {
 	private BlogPostDao blogPostDao;
 	@Autowired
 	private UserDao userDao;
+	@Autowired
+	private NotificationDao notificationDao;
 	
 	@RequestMapping(value="/addblog",method=RequestMethod.POST)
 	public ResponseEntity<?> addBlogPost(HttpSession session,@RequestBody BlogPost blogPost)
@@ -117,11 +121,18 @@ public class BlogPostController {
 		}
 		blogPost.setApproved(true);
 		blogPostDao.approveBlogPost(blogPost);
+		
+		Notification notification=new Notification();
+		notification.setApprovedOrRejected("Approved");
+		notification.setBlogTitle(blogPost.getBlogTitle());
+		notification.setUserToBeNotified(blogPost.getAuthor());
+		notificationDao.addNotification(notification);
+		
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/rejectblogpost",method=RequestMethod.PUT)
-	public ResponseEntity<?> rejectBlogPost(HttpSession session,@RequestBody BlogPost blogPost)
+	@RequestMapping(value="/rejectblogpost/{rejectionReason}",method=RequestMethod.PUT)
+	public ResponseEntity<?> rejectBlogPost(HttpSession session,@RequestBody BlogPost blogPost,@PathVariable String rejectionReason)
 	{
 		String email=(String)session.getAttribute("loginId");
 		if(email==null)
@@ -136,6 +147,15 @@ public class BlogPostController {
 			return new ResponseEntity<ErrorClazz>(errorClazz,HttpStatus.UNAUTHORIZED);
 		}
 		blogPostDao.rejectBlogPost(blogPost);
+		
+		Notification notification=new Notification();
+		notification.setApprovedOrRejected("Rejected");
+		notification.setBlogTitle(blogPost.getBlogTitle());
+		notification.setUserToBeNotified(blogPost.getAuthor());
+		notification.setRejectionReason(rejectionReason);
+		notificationDao.addNotification(notification);
+		
+		
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 }
