@@ -1,0 +1,27 @@
+<div class="panel panel-primary">
+<div class="panel-heading">
+Pending Requests
+</div>
+<div class="panel-body">
+<ul style="list-stlye:none;">
+<li ng-repeat="pendingRequest in pendingRequests">
+
+<div class="media">
+<div class="media-left">
+<img src="http://localhost:8085/middleware/getimage?email={{pendingRequest.fromId.email}}" alt="No Image" height="60px" width="60px">
+</div>
+<div class="media-body">
+<b>Email:</b>{{pendingRequest.fromId.email}}<br>
+<b>{{pendingRequest.fromId.firstname}}&nbsp;{{pendingRequest.fromId.lastname}}</b>
+</div>
+<div class="media-right">
+<button class="btn btn-success" ng-click="acceptRequest(pendingRequest)">Accept Request</button> &nbsp;&nbsp;
+<button class="btn btn-danger" ng-click="deleteRequest(pendingRequest)">Delete Request</button><br>
+</div>
+</div>
+<br>
+</li>
+<br>
+</ul>
+</div>
+</div>

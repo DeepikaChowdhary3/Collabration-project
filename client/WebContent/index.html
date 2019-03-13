@@ -28,7 +28,7 @@
 <li><a href="#/updateuserprofile" ng-show="user!=undefined">Edit User Profile</a></li>
 
 <li class="dropdown">
-<a href="" class="dropdown-toggle" data-toggle="dropdown" ng-show="user!=undefined">Blog
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="user!=undefined">Blog
 <span class="caret"></span></a>
 <ul class="dropdown-menu">
 <li><a href="#/addblog">Add Blog</a></li>
@@ -38,7 +38,7 @@
 </li>
 
 <li class="dropdown">
-<a href="" class="dropdown-toggle" data-toggle="dropdown" ng-show="user.email!=undefined">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="user.email!=undefined">
 Notification<span class="rw-number-notification" ng-if="notificationCount>0">&nbsp;{{notificationCount}}<span class="caret"></span></span></a>
 <ul class="dropdown-menu" style="list-style:none">
 <span class="dropdown-content">
@@ -47,6 +47,16 @@ Notification<span class="rw-number-notification" ng-if="notificationCount>0">&nb
 <br>
 </li>
 </span>
+</ul>
+</li>
+
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="user!=undefined">
+Friend<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="#/suggestedusers">Suggested Users</a></li>
+<li><a href="#/pendingrequests">Pending Requests</a></li>
+<li><a href="#/listoffriends">Friends</a></li>
 </ul>
 </li>
 
@@ -84,5 +94,8 @@ Notification<span class="rw-number-notification" ng-if="notificationCount>0">&nb
 
 <script type="text/javascript" src="controllers/notificationcontroller.js"></script>
 <script type="text/javascript" src="services/notificationservice.js"></script>
+
+<script type="text/javascript" src="controllers/friendcontroller.js"></script>
+<script type="text/javascript" src="services/friendservice.js"></script>
 
 </html>

@@ -1,0 +1,23 @@
+<div class="panel panel-primary">
+<div class="panel-heading">
+<b>My Friends</b>
+</div>
+<div class="panel-body">
+<ul style="list-style:none">
+<li ng-repeat="friend in friends">
+
+<div class="media">
+<div class="media-left">
+<img src="http://localhost:8085/middleware/getimage?email={{friend.email}}" alt="No image" height="70px" width="60px"><br>
+</div>
+<div class="media-body">
+<b>Email: </b>{{friend.email}}<br>
+<b>{{friend.firstname}}&nbsp;{{friend.lastname}}</b><br>
+</div>
+
+</div>
+
+</li>
+</ul>
+</div>
+</div>

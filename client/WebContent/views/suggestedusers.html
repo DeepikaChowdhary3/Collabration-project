@@ -1,0 +1,26 @@
+<div class="panel panel-primary">
+<div class="panel-heading">
+<b>List of Suggested Users</b>
+</div>
+<div class="panel-body">
+<ul style="list-style:none">
+<li ng-repeat="suggestedUser in suggestedUsers">
+
+<div class="media">
+<div class="media-left">
+<img src="http://localhost:8085/middleware/getimage?email={{suggestedUser.email}}" alt="No image" height="70px" width="60px"><br>
+</div>
+<div class="media-body">
+<b>Email: </b>{{suggestedUser.email}}<br>
+<b>{{suggestedUser.firstname}}&nbsp;{{suggestedUser.lastname}}</b><br>
+</div>
+<div class="media-right">
+<button class="btn btn-success" ng-click="addFriend(suggestedUser)">Add Friend</button>
+</div>
+</div>
+<br><hr>
+</li>
+<hr>
+</ul>
+</div>
+</div>
