@@ -1,9 +1,14 @@
+<div class="panel panel-danger">
+<div clas="panel-heading">
+<b>Edit User Details</b>
+</div>
+<div class="panel-body">
 <div ng-show="user==undefined">
 <h3><a href="#/login">Please login to update user details</a></h3>
 </div>
 
 <div ng-show="user!=undefined">
-<b>Edit User Details</b><br>
+<br>
 <span style="color:red">{{error.errorMessage}}</span>
 <form>
 <pre>
@@ -21,4 +26,6 @@ Select Role      :<select ng-model="user.role">
 <button ng-click="updateUserProfile(user)" class="btn btn-primary">Edit</button>
 </pre>
 </form>
+</div>
+</div>
 </div>

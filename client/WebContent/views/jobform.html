@@ -1,8 +1,13 @@
+<div class="panel panel-danger">
+<div class="panel-heading">
+<b>Add Job</b>
+</div>
+<div class="panel-body">
 <div ng-show="user.role!='ADMIN'">
 <h3>You are not authorized to add any job details</h3>
 </div>
 <div ng-show="user.role=='ADMIN'">
-<b>Add Job</b><br>
+<br>
 <span style="color:red">{{message}}</span>
 <span style="color:red">{{error.errorMessage}}</span>
 <form>
@@ -19,4 +24,6 @@ Enter Qualification   	 :<input type="text" ng-model="job.qualification">
 <button ng-click="addJob()">Add Job</button>
 </pre>
 </form>
+</div>
+</div>
 </div>
