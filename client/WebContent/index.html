@@ -8,7 +8,7 @@
 <div class="container">
 <nav class="navbar navbar-inverse" >
 <div  class="navbar-header">
-<a href="" class="navbar-brand"><b> HOME </b></a>
+<a href="#/home" class="navbar-brand"><b> Job's World </b></a>
 <button type="button" class="navbar-toggle collapsed" 
    data-toggle="collapse" data-target="#collapse-example" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
@@ -20,26 +20,26 @@
 <div class="collapse navbar-collapse" id="collapse-example">
 
 <ul class="nav navbar-nav" >
-<li><a href="#/addjob" ng-show="user.role=='ADMIN'">Add Job</a></li>
-<li><a href="#/getalljobs" ng-show="user!=undefined">Get All Jobs</a></li>
-<li><a href="#/registration" ng-show="user==undefined">Sign Up</a></li>
-<li><a href="#/login" ng-show="user==undefined">Sign in</a></li>
-<li><a href="" ng-show="user!=undefined">{{user.firstname}}&nbsp;{{user.lastname}}</a></li>
-<li><a href="#/updateuserprofile" ng-show="user!=undefined">Edit User Profile</a></li>
+<li><a href="#/addjob" ng-show="user.role=='ADMIN'"><b>Add Job</b></a></li>
+<li><a href="#/getalljobs" ng-show="user!=undefined"><b>Get All Jobs</b></a></li>
+<li><a href="#/registration" ng-show="user==undefined"><b>Sign Up</b></a></li>
+<li><a href="#/login" ng-show="user==undefined"><b>Sign in</b></a></li>
+<li><a href="" ng-show="user!=undefined"><b>{{user.firstname}}&nbsp;{{user.lastname}}</b></a></li>
+<li><a href="#/updateuserprofile" ng-show="user!=undefined"><b>Edit User Profile</b></a></li>
 
 <li class="dropdown">
-<a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="user!=undefined">Blog
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="user!=undefined"><b>Blog</b>
 <span class="caret"></span></a>
 <ul class="dropdown-menu">
-<li><a href="#/addblog">Add Blog</a></li>
-<li><a href="#/blogsapproved">Blogs Approved</a></li>
-<li><a href="#/blogswaitingforapproval" ng-show="user.role=='ADMIN'">Blogs Waiting for approval</a></li>
+<li><a href="#/addblog"><b>Add Blog</b></a></li>
+<li><a href="#/blogsapproved"><b>Blogs Approved</b></a></li>
+<li><a href="#/blogswaitingforapproval" ng-show="user.role=='ADMIN'"><b>Blogs Waiting for approval</b></a></li>
 </ul>
 </li>
 
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="user.email!=undefined">
-Notification<span class="rw-number-notification" ng-if="notificationCount>0">&nbsp;{{notificationCount}}<span class="caret"></span></span></a>
+<b>Notification</b><span class="rw-number-notification" ng-if="notificationCount>0">&nbsp;{{notificationCount}}<span class="caret"></span></span></a>
 <ul class="dropdown-menu" style="list-style:none">
 <span class="dropdown-content">
 <li ng-repeat="notification in notifications">
@@ -52,17 +52,17 @@ Notification<span class="rw-number-notification" ng-if="notificationCount>0">&nb
 
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-show="user!=undefined">
-Friend<span class="caret"></span></a>
+<b>Friend</b><span class="caret"></span></a>
 <ul class="dropdown-menu">
-<li><a href="#/suggestedusers">Suggested Users</a></li>
-<li><a href="#/pendingrequests">Pending Requests</a></li>
-<li><a href="#/listoffriends">Friends</a></li>
+<li><a href="#/suggestedusers"><b>Suggested Users</b></a></li>
+<li><a href="#/pendingrequests"><b>Pending Requests</b></a></li>
+<li><a href="#/listoffriends"><b>Friends</b></a></li>
 </ul>
 </li>
 
 <li><a href="#/uploadprofilepic" ng-show="user!=undefined">
 <img src="http://localhost:8085/middleware/getimage?email={{user.email}}" height="50px" width="50px" alt="Upload Profile Picture"></a></li>
-<li><a href="" ng-click="logout()" ng-show="user!=undefined">Sign out</a></li>
+<li><a href="" ng-click="logout()" ng-show="user!=undefined"><b>Sign out</a></li>
 </ul>
 </div>
 </nav>
@@ -75,8 +75,10 @@ Friend<span class="caret"></span></a>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="resources/css/glyphiconcolor.css">
 <link rel="stylesheet" href="resources/css/notification.css">
+<link rel="stylesheet" href="resources/css/uploadpropic.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-cookies.js"></script>

@@ -1,24 +1,94 @@
-<div class="panel panel-success">
-<div class="panel-heading">
-<b>Registration Page</b>
-</div>
-<div class="panel-body">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+h2 {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  display:inline-block;
+  margin: 40px 8px 10px 8px; 
+  color: white;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+}
+#formContent {
+  -webkit-border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
+  background: black;
+  color:white;
+  padding: 30px;
+  width: 500%;
+  max-width: 1500px;
+  position: relative;
+  padding: 0px;
+  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  text-align: center;
+}
+h2.inactive {
+  color: pink;
+}
+h2.active {
+  color: white;
+ 
+}
+
+
+.btn  {
+  background-color:blue;
+  border: none;
+  color: white;
+  padding: 15px 80px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 13px;
+  -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  margin: 5px 20px 40px 20px;
+  
+}
+.btn:hover {
+  background-color: green;
+}
+
+
+</style>
+
+
+<div class="wrapper">
+  <div id="formContent">
+  
+    <h2 class="active"><b>User Registration</b> </h2>
+<br>
 <span style="color:red">{{error.errorMessage}}</span>
+
 <form>
-<pre>
-Enter email      :<input type="email" ng-model="user.email">
-Enter password   :<input type="password" ng-model="user.password">
-Enter Firstname  :<input type="text" ng-model="user.firstname">
-Enter Lastname   :<input type="text" ng-model="user.lastname">
-Enter phonenumber:<input type="text" ng-model="user.phonenumber">
-Select Role      :<select ng-model="user.role">
+
+<h5 class="active">Enter Email Id:</h5>&nbsp;&nbsp;<input type="email" ng-model="user.email" size="35" style="color:red"><br>
+<h5 class="active">Enter Password:</h5>&nbsp;&nbsp;<input type="password" ng-model="user.password" size="35" style="color:red">
+<h5 class="active">Enter Firstname:</h5>&nbsp;&nbsp;<input type="text" ng-model="user.firstname" size="35" style="color:red">
+<h5 class="active">Enter Lastname:</h5>&nbsp;&nbsp;<input type="text" ng-model="user.lastname" size="35" style="color:red">
+<h5 class="active">Enter Phone number:</h5>&nbsp;&nbsp;<input type="text" ng-model="user.phonenumber" size="35" style="color:red">
+<h5 class="active">Select Role:</h5>&nbsp;&nbsp;<select ng-model="user.role" style="color:red">
 				  <option value="ADMIN">Admin
 				  <option value="STUDENT">Student
 				  <option value="ALUMNI">Alumni
 				  <option value="EMPLOYEE">Employee
-				  </select>
-<button ng-click="userRegistration(user)" class="btn btn-primary">Register</button>
-</pre>
+				  </select><br><br>
+<button ng-click="userRegistration(user)" class="btn">Register</button>
+
 </form>
 </div>
 </div>

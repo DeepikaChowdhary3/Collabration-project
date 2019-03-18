@@ -1,14 +1,33 @@
-<div class="panel panel-danger">
-<div class="panel-heading">
-Upload Profile Picture
-</div>
-<div class="panel-body">
-<form action="http://localhost:8085/middleware/uploadprofilepic" method="post" enctype="multipart/form-data">
+<style>
+input[type=text] {
+  background-color: #f6f6f6;
+  border: none;
+  color: #0d0d0d;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  width: 85%;
+  border: 2px solid #f6f6f6;
+  border-radius: 5px 5px 5px 5px;
+}
+</style>
 
-Upload an image for your profile
-<input type="file" name="profilepic"><br>
+<div class="wrapper">
+  <div id="formContent">
+    <h2 class="active"><b>Upload Profile Picture</b> </h2>
+
+<form action="http://localhost:8085/middleware/uploadprofilepic" method="post" enctype="multipart/form-data" accept-charset="UTF-8">
+						
+<br><br>
+<center><input type="file" name="profilepic"></center><br>
 <input type="submit" value="Upload">
 
 </form>
+
+
 </div>
 </div>
+
